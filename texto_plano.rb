@@ -5,9 +5,9 @@ class TextoPlano
     una_clave
   end
 
-  def desencriptar (una_clave)
+  def validar_claves (clave_existente,clave_ingresada)
 
-    una_clave
+    clave_ingresada == clave_existente
 
   end
 
