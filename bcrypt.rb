@@ -1,6 +1,6 @@
 require 'bcrypt'
 
-class User
+class Bcrypt
 
   attr_reader :hash,:clave_encriptada
   include BCrypt
