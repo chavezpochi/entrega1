@@ -1,4 +1,5 @@
 require 'highline/import'
+require './controlador'
 
 salir = false
 estado = 'deslogeado'
@@ -10,11 +11,13 @@ while !salir do
 
 		menu.choice(:Login) do
 			usuario = ask("Ingrese su usuario: ")
-			clave = ask("Enter your password: ") { |q| q.echo = "x" }
-			say("Usted se ha Logeado")
+			clave = ask("Ingrese su clave: ") { |q| q.echo = "x" }
+			@controlador = Controlador.new
+
+			say "#{@controlador.validar_usuario(usuario,clave)}"
 			estado = 'Logeado'
 		end
-
+		
 		menu.choice(:Logout)do
 			say("Usted se ha Deslogeado")
 			estado = 'Deslogeado'
