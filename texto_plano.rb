@@ -1,7 +1,7 @@
 class TextoPlano
 
 
-  def cifrar_clave (una_clave)
+  def encriptar(una_clave)
     una_clave
   end
 

@@ -6,7 +6,7 @@ class Bcrypt
   include BCrypt
 
 
-  def cifrar_clave(una_clave)
+  def encriptar(una_clave)
 
 
     Password.create(una_clave, :cost => 15)

@@ -1,14 +1,20 @@
 class CaesarCipher
 
-  def cifrar_clave (una_clave)
+  def initialize
 
-    una_clave.tr('a-z','d-zabc')
+    @alfabeto = 'a-z'
+    @alfabeto_cifrado = 'd-zabc'
+
+  end
+  def encriptar (una_clave)
+
+    una_clave.tr(@alfabeto,@alfabeto_cifrado)
 
   end
 
   def desencriptar(clave)
 
-      clave.tr('d-zabc','a-z')
+      clave.tr(@alfabeto_cifrado,@alfabeto)
 
   end
 

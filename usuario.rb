@@ -9,7 +9,7 @@ class Usuario
     @logeado = false
   end
 
-  def logear 
+  def logear
 
     @logeado = true
 
@@ -20,4 +20,6 @@ class Usuario
     @logeado = false
 
   end
+
+
 end

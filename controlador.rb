@@ -1,35 +1,32 @@
-require './usuario'
-require './texto_plano'
-require './caesar_cipher'
-require './bcrypt'
-class Controlador
+require './modelo_cmd'
 
-    def initialize (usuario_inicial = "pochi",clave_inicial = "holis")
+class ControladorCMD
 
-        @encriptador = Bcrypt.new
-        @clave_cifrada = @encriptador.cifrar_clave(clave_inicial)
-        @usuario =  Usuario.new(usuario_inicial,@clave_cifrada)
+  def initialize
 
-    end
+    @modelo = ModeloCMD.new
 
-    def validar_usuario(usuario_ingresado,clave_ingresada)
+  end
 
-      if   (@usuario.nombre_de_usuario == usuario_ingresado) & 
-              (@encriptador.validar_claves(@usuario.clave_de_usuario,clave_ingresada))
+  def validar_usuario(usuario_ingresado,clave_ingresada)
+    @modelo.validar_usuario(usuario_ingresado,clave_ingresada)
+  end
 
-          @usuario.logear
+  def deslogear_usuario
 
-      end
-    end
-    def deslogear_usuario
+    @modelo.deslogear_usuario
 
-      @usuario.desloguear
+  end
 
-    end
+  def existe_usuario_logeado?
 
-    def usuario_logeado
+    @modelo.existe_usuario_logeado?
 
-      @usuario.logeado
+  end
 
-    end
+  def  registrar_usuario(nombre_de_usuario,clave_de_usuario)
+
+    @modelo.registrar_usuario(nombre_de_usuario,clave_de_usuario)
+
+  end
 end
