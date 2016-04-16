@@ -1,10 +1,12 @@
 require 'highline/import'
 require './controlador'
-
+require './menu_encriptador'
+require './excepcion'
 salir = false
 estado = 'Deslogeado'
 @controlador = ControladorCMD.new
-
+@menu_encriptador = MenuEncriptador.new
+@menu_encriptador.seleccion_de_encriptacion @controlador
 while !salir do
 
 	choose do |menu|
@@ -17,7 +19,6 @@ while !salir do
 			estado = 'Deslogeado'
 			@controlador.deslogear_usuario
 			end
-
 
 		else
 				menu.choice(:Login) do
@@ -34,7 +35,11 @@ while !salir do
 				menu.choice(:Register) do
 
 					usuario = ask("Ingrese nombre de usuario: ")
-					clave = ask("Ingrese la clave con la cual se logeara: ") { |q| q.echo = "x" }
+					clave = ask("Ingrese la clave con la cual se logeara: ") do |q|
+						q.echo = "x"
+						q.validate = /^[A-Za-z]+$/
+						q.responses[:not_valid] = 'No se permiten numeros ni caracteres especiales'
+					end
 					begin
 						@controlador.registrar_usuario usuario,clave
 						say "Usuario registrado correctamente"
@@ -47,7 +52,7 @@ while !salir do
 			say ("Usted se encuentra: #{estado}")
 		end
 
-				
+
 		menu.choice(:Salir)do
 			salir = true
 			say ("Gracias por venir")

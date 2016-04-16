@@ -2,8 +2,8 @@ class CaesarCipher
 
   def initialize
 
-    @alfabeto = 'a-z'
-    @alfabeto_cifrado = 'd-zabc'
+    @alfabeto = 'a-z' + 'A-Z'
+    @alfabeto_cifrado = 'd-zabc' + 'D-ZABC'
 
   end
   def encriptar (una_clave)

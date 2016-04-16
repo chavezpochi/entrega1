@@ -7,6 +7,17 @@ class ControladorCMD
     @modelo = ModeloCMD.new
 
   end
+  def encriptacion_texto_plano
+    @modelo.encriptacion_texto_plano
+  end
+
+  def encriptacion_caesar_cipher
+    @modelo.encriptacion_caesar_cipher
+  end
+
+  def encriptacion_bcrypt
+    @modelo.encriptacion_bcrypt
+  end
 
   def validar_usuario(usuario_ingresado,clave_ingresada)
     @modelo.validar_usuario(usuario_ingresado,clave_ingresada)
