@@ -28,14 +28,10 @@ class ControladorCMD
   end
 
   def existe_usuario_logeado?
-
     @modelo.existe_usuario_logeado?
-
   end
 
   def  registrar_usuario(nombre_de_usuario,clave_de_usuario)
-
     @modelo.registrar_usuario(nombre_de_usuario,clave_de_usuario)
-
   end
 end

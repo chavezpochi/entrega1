@@ -11,8 +11,8 @@ while !salir do
 
 	choose do |menu|
 
-		menu.prompt = "Bienvenido, que decea hacer?"
-
+		say "\n--Bienvenido, que decea hacer?--"
+	
 		if @controlador.existe_usuario_logeado?
 			menu.choice(:Logout)do
 			say("Usted se ha Deslogeado")
@@ -29,7 +29,7 @@ while !salir do
 							estado = "Logeado como #{usuario}"
 							say "Bienvenido"
 					rescue
-							say "Usuario y contraseña incorrectos"
+							say "<%= color('Usuario y contraseña incorrectos',RED) %>"
 					end
 				end
 				menu.choice(:Register) do
@@ -44,14 +44,13 @@ while !salir do
 						@controlador.registrar_usuario usuario,clave
 						say "Usuario registrado correctamente"
 					rescue
-						say "Nombre de usuario en uso pruebe de nuevo"
+						say "<%= color('Nombre de usuario en uso pruebe de nuevo',RED) %>"
 					end
 				end
 		end
 		menu.choice(:Estado)do
 			say ("Usted se encuentra: #{estado}")
 		end
-
 
 		menu.choice(:Salir)do
 			salir = true

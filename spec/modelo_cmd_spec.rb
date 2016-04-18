@@ -9,6 +9,24 @@ describe ModeloCMD do
       @modelo.registrar_usuario'rodrigo','rd'
     end
 
+    describe "encriptacion_texto_plano"do
+      it "elccion de texto plano como encriptacion"do
+        expect(@modelo.encriptacion_texto_plano).to be_a TextoPlano
+      end
+    end
+
+    describe "encriptacion_bcrypt"do
+      it "elccion de bcrypt como encriptacion"do
+        expect(@modelo.encriptacion_bcrypt).to be_a Bcrypt
+      end
+    end
+
+    describe "encriptacion_caesar_cipher"do
+      it "elccion de caesar cipher como encriptacion"do
+        expect(@modelo.encriptacion_caesar_cipher).to be_a CaesarCipher
+      end
+    end
+
     describe "existe_usuario_logeado?" do
       it "Al menos un usuario logeado" do
         @modelo.logear_usuario'chavez','ch'

@@ -21,7 +21,7 @@ class ModeloCMD
   def encriptacion_bcrypt
     @encriptador = Bcrypt.new
   end
-
+#Implica en deslogear el usuario actual, en caso de que no exista se levanta una excepcion
   def deslogear_usuario
     if existe_usuario_logeado?
       @usuario_actual.desloguear
@@ -46,13 +46,16 @@ class ModeloCMD
       agregar_usuario(usuario_a_registrar)
     end
   end
-
+#logear un usuario ingresado implica validarlo, en caso que exista el usuario se logea, de lo contrario se levanta excepcion
   def logear_usuario(nombre_de_usuario,clave_de_usuario)
       @usuario_actual = validar_usuario(nombre_de_usuario,clave_de_usuario)
       @usuario_actual.logear
   end
 
   private
+=begin Dado un mobre de usuario y una clave ingresados se busca el usuario por el nombre y luego se pide la clave
+  para que el encriptador la valide, en caso de que no se encuente el usuario o no sean claves iguales se levanta excepcion
+=end
     def validar_usuario(usuario_ingresado,clave_ingresada)
       usuario = buscar_usuario(usuario_ingresado)
       if @encriptador.validar_claves(usuario.clave_de_usuario,clave_ingresada)
