@@ -1,6 +1,6 @@
 class Usuario
 
-  attr_accessor :nombre_de_usuario, :clave_de_usuario, :logeado
+  attr_reader :nombre_de_usuario, :clave_de_usuario, :logeado
 
   def initialize(usuario_inicial, clave_inicial)
 
@@ -8,17 +8,13 @@ class Usuario
     @clave_de_usuario = clave_inicial
     @logeado = false
   end
-
+  
   def logear
-
     @logeado = true
-
   end
 
   def desloguear
-
     @logeado = false
-
   end
 
 

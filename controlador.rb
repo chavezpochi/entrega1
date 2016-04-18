@@ -19,14 +19,12 @@ class ControladorCMD
     @modelo.encriptacion_bcrypt
   end
 
-  def validar_usuario(usuario_ingresado,clave_ingresada)
-    @modelo.validar_usuario(usuario_ingresado,clave_ingresada)
+  def logear_usuario(usuario_ingresado,clave_ingresada)
+    @modelo.logear_usuario(usuario_ingresado,clave_ingresada)
   end
 
   def deslogear_usuario
-
     @modelo.deslogear_usuario
-
   end
 
   def existe_usuario_logeado?

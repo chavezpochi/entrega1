@@ -25,7 +25,7 @@ while !salir do
 					usuario = ask("Ingrese su usuario: ")
 					clave = ask("Ingrese su clave: ") { |q| q.echo = "x" }
 					begin
-						@controlador.validar_usuario(usuario,clave)
+						@controlador.logear_usuario(usuario,clave)
 							estado = "Logeado como #{usuario}"
 							say "Bienvenido"
 					rescue
